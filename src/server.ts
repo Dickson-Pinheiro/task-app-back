@@ -1,5 +1,5 @@
 import {app} from "./app.js";
 
 app.listen(5000, () => {
-    console.log("running")
+    console.log("server running in port 5000")
 })

@@ -9,3 +9,28 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+model Users {
+    id         String       @id @default(uuid())
+    name       String
+    email      String       @unique
+    password   String
+    Tasks      Tasks[]
+}
+
+model Tasks {
+  id            String      @id @default(uuid())
+  author        Users       @relation(fields: [authorId], references: [id])
+  authorId      String
+  task          String
+  done          Boolean     @default(false)
+  priority      Priorities
+  priorityValue  String
+}
+
+enum Priorities {
+  urgente
+  alta
+  media
+  baixa
+}
