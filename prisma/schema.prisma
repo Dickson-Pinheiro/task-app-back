@@ -25,7 +25,7 @@ model Tasks {
   task          String
   done          Boolean     @default(false)
   priority      Priorities
-  priorityValue  String
+  priorityValue Int
 }
 
 enum Priorities {
