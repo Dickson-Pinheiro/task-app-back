@@ -12,7 +12,7 @@
     "test": "npx dotenv -e .test.env jest",
     "prisma:migrate:test": "npx dotenv -e .test.env npx prisma migrate dev",
     "prisma:migrate:dev": "npx dotenv -e .development.env npx prisma migrate dev",
-    "prisma:migrate:deploy": "npx prisma migrate deploy",
+    "prisma:migrate:deploy": "npx dotenv -e .env npx prisma migrate deploy",
     "prisma:generate:deploy": "npx prisma generate deploy",
     "prisma:generate:test": "npx dotenv -e .test.env npx prisma generate dev",
     "prisma:generate:dev": "npx dotenv -e .development.env npx prisma generate dev"
