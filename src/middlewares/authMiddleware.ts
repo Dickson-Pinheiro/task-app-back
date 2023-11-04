@@ -11,7 +11,7 @@ export function authRouteMiddleware(req: Request, res: Response, next: NextFunct
         return res.status(401).send({name: "unauthorized", message: "unauthorized"})
     }
 
-    jwt.verify(token, process.env.SECRET_KEY, (err: any , decoded: any ) => {
+    jwt.verify(token, process.env.JWT_SECRET_KEY, (err: any , decoded: any ) => {
         if(err){
             return res.status(401).send({name: "unauthorized", message: "unauthorized"})
         }

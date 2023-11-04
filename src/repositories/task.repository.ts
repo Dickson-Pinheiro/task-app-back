@@ -12,6 +12,15 @@ async function create(task: string, priorityValue: number, priority: Priorities,
     })
 }
 
+async function getTasksByAuthorId(authorId: string){
+    return prisma.tasks.findMany({
+        where: {
+            authorId
+        }
+    })
+}
+
 export const taskRepository = {
-    create
+    create,
+    getTasksByAuthorId
 }

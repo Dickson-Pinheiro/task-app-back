@@ -3,8 +3,14 @@ import { ICreateTask } from "../protocols/task.js"
 import { taskService } from "../services/task.service.js"
 
 
-function getAll(req: Request, res: Response, next: NextFunction) {
-
+async function getAll(req: Request, res: Response, next: NextFunction) {
+    const { userId } = req.app.locals
+    try {
+        const tasks = await taskService.getTasksByAuthorId(userId)
+        res.send(tasks)
+    } catch (error) {
+        next(error)
+    }
 }
 
 async function create(req: Request, res: Response, next: NextFunction) {

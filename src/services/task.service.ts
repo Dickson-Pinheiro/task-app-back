@@ -18,11 +18,14 @@ function getPriorityValue(priority: Priorities){
 
 async function createTask(authorId: string, task: string, priority: Priorities){
     const priorityValue = getPriorityValue(priority);
-
     return await taskRepository.create(task, priorityValue, priority, authorId)
+}
 
+async function getTasksByAuthorId(authorId: string){
+    return taskRepository.getTasksByAuthorId(authorId);
 }
 
 export const taskService = {
-    createTask
+    createTask,
+    getTasksByAuthorId
 }
