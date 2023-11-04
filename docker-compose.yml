@@ -12,7 +12,7 @@ services:
     container_name: node_app
     build: .
     ports:
-      - 5000:5000
+      - 8080:8080
     depends_on:
       - database
     env_file:
