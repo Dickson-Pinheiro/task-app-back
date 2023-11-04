@@ -7,8 +7,8 @@
   "scripts": {
     "build": "tsc",
     "dev": "npx dotenv -e .development.env nodemon src/server.ts",
-    "start:dev": "npx dotenv -e .development.env node dist/server.js",
-    "start:production": "node dist/server.js",
+    "start:dev": "npx dotenv -e .development.env node dist/src/server.js",
+    "start:production": "npm run prisma:migrate:deploy && node dist/src/server.js",
     "test": "npx dotenv -e .test.env jest",
     "prisma:migrate:test": "npx dotenv -e .test.env npx prisma migrate dev",
     "prisma:migrate:dev": "npx dotenv -e .development.env npx prisma migrate dev",
