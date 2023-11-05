@@ -15,8 +15,8 @@ async function create(req: Request, res: Response, next: NextFunction){
 async function login(req: Request, res: Response, next: NextFunction){
         const { email, password } = req.body as ILoginUser
     try {
-        const {token} = await userService.login(email, password)
-        return res.send({token})
+        const {token, name} = await userService.login(email, password)
+        return res.send({token, name})
     } catch (error) {
         next(error)
     }

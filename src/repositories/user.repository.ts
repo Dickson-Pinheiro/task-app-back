@@ -20,7 +20,7 @@ async function createUser(name: string, email: string, password: string){
             email,
             name,
             password
-        }
+        },
     })
 }
 

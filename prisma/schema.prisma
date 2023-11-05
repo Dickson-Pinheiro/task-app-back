@@ -26,6 +26,7 @@ model Tasks {
   done          Boolean     @default(false)
   priority      Priorities
   priorityValue Int
+  createdAt     DateTime    @default(now())
 }
 
 enum Priorities {

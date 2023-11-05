@@ -16,7 +16,15 @@ async function getTasksByAuthorId(authorId: string){
     return prisma.tasks.findMany({
         where: {
             authorId
-        }
+        },
+        orderBy: [
+            {
+                priorityValue: 'desc',
+            },
+            {
+                createdAt: 'desc'
+            }
+        ]
     })
 }
 
